@@ -1,0 +1,2056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M Çınar</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- jQuery library (make sure to include it in your HTML file) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<link rel="icon" href="images2/SLD.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'popins' , sans-serif;
+}
+:root{
+
+    --body--color:#020710;
+    --main-color:#00abf0;
+    --bg-color: #f06;
+    --text-color:#3cf;
+    --mainn-color: rgb(155, 0, 150);
+    
+}
+body{
+    background: #020710;
+   
+    overflow-x: hidden;
+    
+}
+
+.header{
+    position: fixed;
+    width: 100%;
+    
+    padding: 20px 10%;
+    background: transparent;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background-color: transparent;
+    transition: all 0.3s ease-in-out;
+}
+.header.scrolled {
+   filter: blur(.1px);
+  }
+.logo{
+    font-size: 35px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+     cursor: pointer;
+    position: relative;
+    top: 45px;
+    left: 70px;
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    background: linear-gradient(45deg, #f06,
+    #3cf);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+
+
+    
+   
+   
+}
+.burger-menu a{
+    display: none;
+   color: #f06;
+    font-size:40px;
+    
+
+}
+
+
+
+.navbar a{
+    display: inline-block;
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 35px;
+    position: relative;
+    left: 400px;
+    top: -20px;
+    transition: .3s;
+    opacity: 0;
+    animation: slideTop .5s ease forwards;
+    animation-delay: calc(.2s * var(--i)) ;
+    
+  
+  
+}
+.navbar a.active,
+.navbar a:hover{
+    background: linear-gradient(45deg, #f06,
+    #3cf);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+
+}
+#btn-top{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    position: relative;
+    left: 1300px;
+    background: linear-gradient(45deg, #f06,
+    #3cf);
+    position: fixed;
+    bottom: -50px;
+    right: 20px;
+    transition: bottom 0.3s ease-in-out;
+
+
+
+}
+#btn-top.show{
+    bottom: 20px;
+}
+#btn-top span{
+    font-size: 30px;
+    color: #fff;
+    transition: .2S ease;
+    
+}
+#btn-top:hover{
+   background: #f06;
+  
+    
+}
+#btn-top span:hover{
+    background: linear-gradient(45deg, #f06,
+    #3cf);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-size: 35PX;
+}
+section {
+    min-height: 100vh;
+    padding: 10rem 9% 2rem;
+}
+.home{
+    
+    position: relative;
+    top: -90px;
+    left: -30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.home-content{
+    max-width: 60rem;
+   
+}
+.home-content h1{
+    font-size: 3.1rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #fff;
+    opacity: 0;
+    animation: slideLeft .1s ease forwards;
+    animation-delay: 1.5s;
+}
+.home-content .text-animate{
+    position: relative;
+    width: 32.8rem;
+
+    opacity: 0;
+    animation: slideRight .1s ease forwards;
+    animation-delay: 1s;
+}
+.home-content .text-animate h3 {
+
+    font-size: 3.0rem;
+    font-weight: 700;
+    color: transparent;
+    -webkit-text-stroke: .7px var(--main-color);
+    background-image: linear-gradient(var(--main-color), var(--main-color));
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-position: -15rem 0;
+    animation: homeBgText 6s linear infinite;
+    animation-delay: 2s;
+}
+.home-content .text-animate h3::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    border-right: 2px solid var(--main-color);
+    z-index: -1;
+    animation: homeCursorText 6s linear infinite;
+    animation-delay: 2s;
+}
+.home-content p{
+    color: #fff;
+    font-size: 1.0rem;
+    margin: 2rem 0 4rem;
+    opacity: 0;
+    animation: slideLeft .1s ease forwards;
+    animation-delay: 1.7s;
+}
+.cv-download{
+    text-decoration: none;
+    padding-left: 50px;
+   
+    background: linear-gradient(45deg, #f06,
+    #3cf);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-weight: 600;
+    border-radius: 48px;
+    padding: 20px;
+    height: 48px;
+    transition: .5s;
+    font-size: 18px;
+      animation: slideTop .1s ease forwards;
+    animation-delay: 1.8s;
+
+  
+ 
+   
+
+}
+
+.cv-download:hover{
+    text-shadow:
+    0 0 10px #00abf0,
+   0 0 20px #f06,
+   0 0 40px #00abf0;
+   
+  
+   background: linear-gradient(45deg, #f06,
+   #3cf);
+   -webkit-text-fill-color: transparent;
+   -webkit-background-clip: text;
+}
+.btn{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 48px;
+    border-radius: 48px;
+    background: linear-gradient(45deg, #f06, #3cf, #f06);
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 19px;
+    color: #fff;
+    transition: .5s ease;
+    opacity: 0;
+    animation: slideTop .1s ease forwards;
+    animation-delay: 1.8s;
+   
+ 
+}
+.btn:hover{
+    box-shadow:
+    0 0 10px #00abf0,
+   0 0 20px #f06,
+   0 0 40px #00abf0;
+}
+
+/*btn::before{
+content:'';
+position :absolute;
+top: 0;
+left: 0;
+inset: 0;
+background: linear-gradient(45deg, #f06, #3cf, #f06);
+background-size: 200%;
+background-position: 0 0;
+z-index: -1;
+border-radius: 40px;
+filter: blur(5px);
+
+}
+btn::after{
+    content:'';
+    position :absolute;
+    top: 0;
+    left: 0;
+    inset: 0;
+    background: linear-gradient(45deg, #f06, #3cf, #f06);
+    background-position: 0 0;
+    background-size: 200%;
+    z-index: -1;
+    border-radius: 40px;
+ 
+    transition: .5s ease;
+    
+    }
+    btn:hover::after{
+        background-position: 100% 0;
+    }
+    */
+.home-content{
+
+    max-width: 700px;
+    margin-left: -30px;
+    position: relative;
+    top: 80px;
+}
+.home-sci a{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background:  linear-gradient(45deg, #f06, #3cf, #f06);
+    border-radius: 50%;
+    font-size: 20px;
+    color: #fff;
+    text-decoration: none;
+    margin: 20px 0;
+    z-index: 1;
+    position: relative;
+    top: 60px;
+}
+
+
+.home-sci a::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #020710;
+    border-radius: 50%;
+    transform: scale(.88);
+    z-index: -1;
+    transition: .5s ease;
+}
+.home-sci a:hover::after{
+    transform: scale(0);
+    
+}
+.home-sci a:nth-child(1){
+    opacity: 0;
+    animation: slideBottom .1s ease forwards;
+    animation-delay: 2.1s;
+}
+.home-sci a:nth-child(2){
+    opacity: 0;
+    animation: slideRight .1s ease forwards;
+    animation-delay: 2.1s;
+}
+.home-sci a:nth-child(3){
+    opacity: 0;
+    animation: slideTop .1s ease forwards;
+    animation-delay: 2.1s;
+}
+#get:hover{
+
+    background: linear-gradient(45deg, #f06,
+    #3cf);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+
+.home-img{
+    position: relative;
+    top: 80px;
+    width: 410px;
+    height: 410px;
+    opacity: 0;
+    animation: zoomIn .1s ease forwards,FloatImage
+    4s ease-in-out infinite;
+    animation-delay: 2.1s,2.1s;
+  
+}
+.home-img .glowing-circle{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.home-img .glowing-circle::after{
+    content: '';
+    position: absolute;
+    width: 390px;
+    height: 390px;
+    background: #020710;
+    border-radius: 50%;
+}
+.glowing-circle .image{
+    position: relative;
+    width: 390px;
+    height: 390px;
+    border-radius: 50%;
+    z-index: 1;
+    overflow: hidden;
+}
+.image img{
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 300px;
+    object-fit: cover;
+
+}
+.glowing-circle span:nth-child(1)
+{
+  filter: blur(10px);
+}
+.glowing-circle span{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background:  linear-gradient(45deg, #f06, #3cf, #f06);
+    
+    border-radius: 50%;
+   
+}
+
+@keyframes slideTop {
+    
+    0%{
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes slideRight {
+    
+    0%{
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes slideLeft {
+    
+    0%{
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes slideBottom {
+    
+    0%{
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomIn {
+    0%{
+        opacity: 0;
+        transform:scale(0);
+
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+@keyframes FloatImage{
+    0%{
+        transform:  translateY(0);
+    }
+    50%{
+        transform:  translateY(-24px);
+    }
+    100%{
+        transform:  translateY(0);
+    }
+}
+
+@keyframes homeBgText {
+    0%,
+    10%,
+    100%{
+        background-position:  -33rem 0;
+    }
+    65%,
+    85%{
+        background-position: 0 0;
+    }
+}
+@keyframes homeCursorText {
+    0%,
+    10%,
+    100%{
+        width: 0;
+    }
+    65%,
+    78%,
+    85%{
+        width: 100%;
+        opacity: 1;
+    }
+    75%,
+    81%{
+        opacity: 0;
+    }
+}
+
+@keyframes aboutSpinner{
+    100%{
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.about-img{
+
+    position: relative;
+    width: 25rem;
+    height: 25rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-img img{
+    width: 50%;
+    height: 50%;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: .2rem solid var(--text-color);
+    position: relative;
+    top: -70px;
+    box-shadow:
+    0 0 10px #00abf0,
+   0 0 20px #f06,
+   0 0 40px #00abf0;
+   position: relative;
+   top: -100px;
+ 
+}
+.about{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: .5rem;
+    background: var(#020710);
+    padding-bottom: 6rem;
+    position: relative;
+ 
+ 
+   
+}
+/* navbar padding */
+#navbar-padding {
+    height: 80px; /* navbar height */
+  }
+.heading{
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    background: linear-gradient(45deg, #f06,
+    #3cf);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+.about-img .circle-spin{
+    position: absolute;
+    top: 24.5%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0);
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+    border-top: .2rem solid #020710;
+    border-bottom:  .2rem solid #020710;
+    border-left: .2rem solid var(--main-color);
+    border-right: .2rem solid var(--bg-color);
+    animation: aboutSpinner 8s linear infinite;
+    box-shadow:
+    0 0 10px #00abf0,
+   0 0 20px #f06,
+   0 0 40px #00abf0;
+   
+}
+.about-content {
+    text-align: center;
+}
+.about-content h3{
+    color: #00abf0;
+    font-size: 2.2rem;
+   position: relative;
+   top: -80px;
+   left: 20px;
+   font-weight: 300;
+   position: relative;
+   top: -150px;
+}
+
+.about-content p{
+    max-width: 900px;
+    color: #fff;
+    font-size: 1.2rem;
+    margin: 2rem 0 1rem;
+   
+    position: relative;
+    top: -150px;
+}
+
+#sakli_metin{
+    color: #fff;
+    font-size: 1.2rem;
+    margin: 2rem 0 1rem;
+  
+    position: relative;
+    top: -150px;
+    max-width: 900px;
+}
+.stilli-buton{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 48px;
+    border-radius: 48px;
+    background: linear-gradient(45deg, #f06, #3cf, #f06);
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 19px;
+    color: #fff;
+    transition: .5s ease;
+    opacity: 0;
+    animation: slideTop .1s ease forwards;
+    animation-delay: 1.8s;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    top: -150px;
+   
+ 
+}
+.stilli-buton:hover{
+    box-shadow:
+    0 0 10px #00abf0,
+   0 0 20px #f06,
+   0 0 40px #00abf0;
+  
+   background: linear-gradient(45deg, #f06,
+   #3cf);
+   -webkit-text-fill-color: transparent;
+   -webkit-background-clip: text;
+}
+.stilli-buton:active {
+ 
+    transform: translateY(0);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px; /* kaydırma çubuğu genişliği */
+  }
+
+  ::-webkit-scrollbar-track {
+    background: linear-gradient(45deg, #f06,
+    #3cf);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #000;
+    border-radius: 48px; /* kaydırma çubuğu köşe yuvarlatması */
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #f06;
+  }
+
+  .education{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+    min-height: auto;
+    padding-bottom: 5rem;
+    margin-left: 15px;
+   position: relative;
+   top: -600px;
+   padding-left: 2rem;
+   
+   overflow-x: hidden;
+ 
+   
+  }
+  .education{
+    color: #fff;
+  }
+  
+  .education .education-row{
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem;
+  }
+
+ .education-row .education-column{
+    flex:  1 1 40rem;
+  }
+
+  .education-column .title{
+    font-size: 2.5rem;
+    margin: 0 0 1.5rem 2rem;
+  }
+
+  .education-column .education-box{
+
+    
+  }
+.education-content h3 p{
+    font-size: 10px;
+    color: #fff;
+}
+#text2{
+    position: relative;
+   left: 700px;
+   top: -545px;
+   
+}
+#text12{
+    position: relative;
+    left: -100px;
+    top: 40px;
+}
+.education-box .education-content{
+    position: relative;
+    padding-left: 2rem;
+}
+
+.education-content .content{
+    position: relative;
+    padding: .5rem;
+    width: 500px;
+    
+    border-radius: .6rem;
+    margin-bottom: 2rem;
+}
+.education-content .content .year{
+    font-size: 1rem;
+    color:  linear-gradient(45deg, #f06, #3cf, #f06); ;
+}
+.education-content .content .year i{
+    padding-right: .5rem;
+}
+.education-content .content h3{
+    padding-top: .5rem;
+}
+.education-content .content p{
+    padding-top: .5rem;
+}
+.education-content{
+    background: transparent;
+    border-radius: 48px;
+ 
+
+  
+  
+ 
+}
+.education-conten .content{
+    border-radius: 48px;
+}
+.content
+{
+    width: 200px;
+}
+.education-content::before
+{
+    width: 600px;
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-right: .2rem solid #00abf0;
+    background: #fff;
+    z-index: -1;
+}
+.education-content::after
+{
+    width: 500px;
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: transparent;
+    z-index: -1;
+    filter: blur(10px);
+   
+    
+}
+.education-content::before,
+.education-content::after
+{
+    background: linear-gradient(235deg,#00abf0,#020710
+    ,#f06);
+    border-radius: 48px;
+    animation: shadow-pulse 3s infinite;
+}
+@keyframes shadow-pulse {
+    0% {
+      box-shadow: 0 0 .5rem rgb(135, 6, 6);
+    }
+    50% {
+      box-shadow: 0 0 1rem rgb(56, 20, 199);
+    }
+    100% {
+      box-shadow: 0 0 .5rem rgba(19, 57, 163, 0.985);
+    }
+  }
+  #title2{
+    font-size: 4rem;
+    position: relative;
+    top: 20px;
+  }
+
+
+  /*
+  
+
+  NAVBAR ALTERNATİFE 2
+  
+  */
+  .navigation{
+    position: relative;
+    top: -5px;
+    left: 880px;
+    width: 350px;
+    height: 70px;
+    background:  linear-gradient(45deg, #f06, #3cf, #f06);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.navigation ul{
+    display: flex;
+    width: 350px;
+}
+.navigation ul li{
+    position: relative;
+    width: 70px;
+    height: 70px;
+    list-style: none;
+    z-index: 1;
+}
+.navigation ul li a{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+}
+.navigation ul li a .icon {
+    position: relative;
+    display: block;
+    line-height: 75px;
+    font-size: 1.5em;
+    text-align: center;
+    color: #fff;
+    transition: .5s;
+}
+.navigation ul li.active a .icon{
+  
+    transform:  translateY(-32px);
+}
+.navigation ul li a .text{
+    position: absolute;
+    color: #fff;
+    font-weight: 400;
+    font-size: .75em;
+    letter-spacing: .05em;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: .5s;
+}
+.navigation ul li.active a .text{
+
+   opacity: 1;
+    transform: translateY(10px);
+}
+
+.indicator {
+    position: absolute;
+    top: -50%;
+    width: 70px;
+    height: 70px;
+    background:  linear-gradient(45deg, #f06, #3cf, #f06);
+    border: 6px solid #020710;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.indicator::before
+{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -22px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-right-radius: 20px;
+    box-shadow: 1px -10px 0 #020710;
+}
+.indicator::after
+{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -22px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-left-radius: 20px;
+    box-shadow: -1px -10px 0 #020710;
+}
+
+.navigation ul li a .circle
+{
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    border: 1.8px solid #fff;
+    transform: translateY(-37px) scale(0);
+}
+.navigation ul li.active a .circle
+{
+    transition: .5s;
+    transition-delay:.5s;
+    transform: translateY(-37px) scale(1);
+ 
+}
+.navigation ul li:nth-child(1).active~.indicator {
+    transform: translateX(calc(70px * 0));
+}
+.navigation ul li:nth-child(2).active~.indicator {
+    transform: translateX(calc(70px * 1));
+}
+.navigation ul li:nth-child(3).active~.indicator {
+    transform: translateX(calc(70px * 2));
+}
+.navigation ul li:nth-child(4).active~.indicator {
+    transform: translateX(calc(70px * 3));
+}
+.navigation ul li:nth-child(5).active~.indicator {
+    transform: translateX(calc(70px * 4));
+}
+
+#video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #video-container {
+    width: 640px;
+    height: 360px;
+    overflow: hidden;
+    animation: pulse 6s infinite;
+
+
+   border-radius: 48px;
+  }
+  @keyframes pulse {
+    0% {
+      box-shadow: 0px 0px 10px 5px  #f06;
+    }
+    33% {
+      box-shadow: 0px 0px 10px 5px  #3cf;
+    }
+    66% {
+      box-shadow: 0px 0px 10px 5px  #f06;
+    }
+    100% {
+      box-shadow: 0px 0px 10px 5px  #3cf;
+    }
+}
+    
+  
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 2px solid var(--bg-color);
+    border-radius: 48px;
+ 
+  }
+  
+  #video-overlay.show {
+    display: flex;
+  }
+  
+  #video-overlay.show video {
+    animation: fadeInVideo 2s ease-in-out forwards;
+  }
+  
+  @keyframes fadeInVideo {
+    from { opacity : 0 ; }
+    to { opacity : 1 ; }
+  }
+
+   @property --gradient-angle
+   {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+   }
+
+  .dark-mode {
+    background-color: white;
+    
+  }
+
+
+
+.box{
+    position: relative;
+    left: 100px;
+    top: -900px;
+    width: 700px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #020710;
+   
+}
+
+.box::before{
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: #fff;
+    z-index: -1;
+    
+}
+.box::after{
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: #fff;
+    filter: blur(40px);
+    z-index: -2;
+}
+.box::before,
+.box::after
+{
+    background:  linear-gradient(235deg, #f06,#020710, #3cf );
+    animation: gradient 2s ease infinite;
+}
+
+
+@keyframes gradient {
+    0% { background-position: 0 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0 50%; }
+}
+
+.skills{
+    width: 100%;
+    padding: 0 20px;
+}
+
+.skill-name{
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    margin: 20px 0;
+}
+.skil-bar{
+    height: 14px;
+    background: #282828;
+    border-radius: 3px;
+}
+.skill-per{
+    height: 14px;
+    background:  linear-gradient(45deg, #f06, #3cf, #f06);
+    position: relative; 
+    animation: fillBars 2.5s 1;
+    
+    
+}
+.skill-per::before
+{
+    content: attr(per);
+    position: absolute;
+    padding: 4px 6px;
+    background:  linear-gradient(45deg, #f06, #3cf, #f06);
+    border-radius: 4px;
+    font-size: 12px;
+    top: -35px;
+    right: 0;
+    transform: translateX(50%);
+}
+
+.skill-per::after{
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background:  linear-gradient(45deg, #f06, #3cf, #f06);
+    top: -20px;
+    right: 0;
+    transform: translateX(50%) rotate(45deg);
+    border-radius: 2px;
+}
+
+@keyframes fillBars
+{
+    from{
+        width: 0;
+    }
+    to{
+        width: 100%;
+    }
+}
+
+
+.skillss{
+
+    width: 160px;
+    height: 160px;
+    background: transparent;
+    position: relative;
+    top: -900px;
+}
+.per-baarr{
+    width: 160px;
+    height: 160px;
+   
+    position: relative;
+    border: 6px solid #020710;
+  
+    margin: 20px;
+   
+}
+.per-bar{
+    position: relative;
+    top: -1200px;
+    left: 920px;
+    padding: 10px;
+    display: flex;
+  
+}
+
+.outer{
+    height: 160px;
+    width: 160px;
+ 
+    border-radius: 50%;
+    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15), -6px -6px
+    10px -1px rgb(255, 255, 255, 0.7);
+
+}
+.inner{
+    height: 120px;
+    width: 120px;
+    border: 1px solid #f06;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 4px 4px 6px -1px rgba(0,0,0,0.2) inset -4px 
+    -4px 6px -1px rgb(255, 255, 255, 0.7),
+    -0.5px -0.5px 0px rgb(255, 255, 255, 1), 0.5px 0.5px 0px 
+    rgba(0,0,0,0.15), 0px 12px 10px -10px  rgba(0,0,0,0.05);
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 20px;
+    top: 20px;
+}
+#number{
+    font-weight: 600;
+    background: linear-gradient(45deg, #f06,
+    #3cf);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+.progress-bar {
+    width: 100%;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ccc;
+    position: relative;
+  }
+  
+  .progress-bar .progress {
+    width: 0%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .title-skills{
+    position: relative;
+    top: -950px;
+    left: 350px;
+    font-size: 25px;
+    font-weight: 600;
+    background: linear-gradient(360deg, #f06,
+    #3cf);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+
+  }
+  #box3{
+    position: relative;
+    left: -1060px;
+    top: 200px;
+  }
+  #per2{
+    position: relative;
+    left: -250px;
+    top: -100px;
+  }
+
+  #title2{
+    position: relative;
+    left: -780px;
+    top: 170px;
+    font-size: 30px;
+  }
+  
+form{
+    position: relative;
+    top: 500px;
+    left: -300px;
+}
+.form {
+    position: relative;
+    left:-300px;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+ 
+  }
+
+  label {
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, #f06,
+    #3cf);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    border: 2px solid #f06;
+    border-radius: 48px;
+    padding: 20px;
+    margin-bottom: 15px;
+    color: #fff;
+  }
+ 
+  textarea {
+    height: 200px;
+    background: transparent;
+    color: #fff;
+    
+    
+  }
+  
+  input[type="submit"] {
+    background-color: #f06;
+    color: white;
+    border: none;
+    border-radius: 48px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: .5s;
+    
+  }
+
+  input[type="submit"]:hover {
+    box-shadow:
+    0 0 10px #00abf0,
+   0 0 20px #f06,
+   0 0 40px #00abf0;
+  
+   background: linear-gradient(45deg, #f06,
+   #3cf);
+   -webkit-text-fill-color: transparent;
+   -webkit-background-clip: text;
+  }
+input{
+    background: transparent;
+}
+
+#input-id:focus {
+    border-color: #000;
+    box-shadow: 0px 0px 5px #000;
+  }
+  #box-end
+  {
+    position: relative;
+    top: 70px;
+    left: -1100px;
+   
+
+}
+#box-end img{
+    position: relative;
+    width: 700px;
+    height: 400px;
+    border-radius: 48px;
+    
+}
+#box-end h1{
+    position: relative;
+    top: -150px;
+    left: 200px;
+    background: linear-gradient(45deg, #f06,
+    #3cf);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-size: 2rem;
+}
+#box-end span{
+    position: relative;
+    left: -150px;
+    top: 50px;
+    font-weight: 600;
+    font-size: 18px;
+    
+    background: linear-gradient(45deg, #f06,
+    #3cf);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    transition: .5s;
+   
+}#box-end p{
+    position: relative;
+    left: 300px;
+    background: linear-gradient(45deg, #f06,
+    #3cf);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+#box-end span:hover{
+  
+    text-shadow:
+    0 0 10px #00abf0,
+   0 0 20px #f06,
+   0 0 40px #00abf0;
+}
+.dizaing{
+    position: relative;
+    width: 100%;
+    height: 48PX;
+    background: #00abf0;
+
+}
+
+
+
+
+
+
+
+</style>
+
+</head>
+<body>
+
+
+    <a href="#" id="logo" style="position: relative; left: 100px;" class="logo">SLD</a>
+    <header class="header" id="header" >
+
+
+
+
+
+
+        <!--   NAVBAR ALTERNATIVE 1-->
+ 
+      
+       <div class="burger-menu">
+        <a href="#"><ion-icon name="menu-outline"></ion-icon></a>
+       </div>
+       
+      <nav class="navbar">
+            <a href="#" style="--i:1;" 
+             class="active">Home</a>
+            <a href="#about" style="--i:2;" >About</a>
+            <a href="#education" style="--i:3;" >Education</a>
+            <a href="#skillss" style="--i:4;" >Skill</a>
+            <a href="#form" style="--i:4;" >contact</a>
+          
+
+            <!--<button onclick="toggleDarkMode()">Dark Modu Aktif Et</button>--> 
+         </nav>
+       
+       
+
+        
+            <!-- Header kısmının içeriği burada olacak -->
+            <div id="scroll-button">
+                <button id="btn-top" onclick="scrollToTop()"><span><ion-icon name="arrow-up-outline"></ion-icon></span></ion-icon></button>
+            </div>
+        
+          
+          <!--   NAVBAR ALTERNATIVE 2
+
+          <div class="navigation">
+            <ul>
+                <li class="list active">
+                    <a href="#">
+                        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                            <span class="text">Home</span>
+                            <span class="circle"></span>
+                        
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#about">
+                        <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                            <span class="text">About</span>
+                            <span class="circle"></span>
+                        
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#education">
+                        <span class="icon"><ion-icon name="globe-outline"></ion-icon></span>
+                            <span class="text">Education</span>
+                            <span class="circle"></span>
+                        
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#skillss">
+                        <span class="icon"><ion-icon name="desktop-outline"></ion-icon></span>
+                            <span class="text">Skill</span>
+                            <span class="circle"></span>
+                        
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#form">
+                        <span class="icon"><ion-icon name="mail-open-outline"></ion-icon></span>
+                            <span class="text">contact</span>
+                            <span class="circle"></span>
+                        
+                    </a>
+                </li>
+                <div class="indicator"></div>
+            </ul>
+          </div>
+ 
+                -->
+          <div id="video-overlay">
+            <div id="video-container">
+              <video src="videos/WhatsApp Video 2023-09-08 at 18.17.09.mp4" autoplay loop controls></video>
+            </div>
+          </div>
+              
+    </header>
+    <section class="home" >
+        <div class="home-sci">
+            <a href="https://www.instagram.com/sealiondeveloper/" target="_blank"><i class='bx bxl-instagram' ></i></a>
+            <a href="https://www.linkedin.com/in/sealiondeveloper/" target="_blank"><i class='bx bxl-linkedin' ></i></a>
+            <a href="https://wa.me/+905462850191" target="_blank"><i class='bx bxl-whatsapp' ></i></a>
+
+        </div>
+        
+        <div class="home-content">
+            <h1><span>I'M </span>MUHAMMED CINAR</h1>
+            <div class="text-animate">
+                <h3>IT SPECIALIST</h3>
+            </div>
+            <P>I want to keep up with technology and continuously improve myself.
+                 <br>
+                </P>
+                 <a href="#"  id="video-button" class="btn"> <span id="get">let's video </span>  </a>
+                 <a class="cv-download" href="CW/MC2024.pdf" download="dosya_adı.pdf">DOWNLOAD CV</a>
+
+        </div>
+
+        <div class="home-img">
+            <div class="glowing-circle">
+                <span></span>
+                <span></span>
+                <div class="image" id="image">
+                    <img src="images2/images1.png.png" alt="">
+                </div>
+            </div>
+        </div>
+   
+    </section>
+    <!--about section desing-->
+
+    <section class="about" id="about"  style="position: relative; padding-top: 30px;">
+        <h2 class="heading"> About Me</h2>
+
+        <div class="about-img">
+            <img src="images2/SLD.png" alt="">
+            <span class="circle-spin"></span>
+        </div>
+
+       
+       
+        <div class="about-content">
+        <h3>IT SPECIALIST</h3>
+      
+        <p>For me, IT is not only a profession but also a passion and a lifestyle.
+             My curiosity and enthusiasm for the world of technology drives me to pursue a career in this exciting field.
+              As I closely follow the transformation brought about by the evolving digital age,
+               I have observed the power of IT and its potential to change the world.
+                That is why I would like to share my passion for the IT industry with you.
+        </p>
+             <div id="sakli_metin" style="display:none;">
+                I am fascinated by the endless possibilities and constant progress offered by information technologies.
+                 Innovative solutions and smart technologies are a powerful tool to solve problems and make people's lives easier.
+                  I am ready to increase my knowledge and improve my skills in this ever-changing and evolving field.
+
+                Those moments of euphoria during the coding process,
+                 the satisfaction of overcoming a problem, motivate me.
+                  With my creative thinking, analytical skills and problem solving ability,
+                   I look forward to contributing to IT projects.
+                    I also know the importance of teamwork and love working with my teammates to achieve common goals.
+                
+                I take care to continuously improve myself and be open to new technologies.
+                 I aim to keep my knowledge up to date through trainings, certifications and conferences.
+                  By gaining experience with new technologies, I take care to follow the latest trends and best practices in the industry.
+                
+                In this rich world where different sectors,
+                 business processes and customer needs are combined with IT,
+                  it is my goal to produce effective solutions and to develop new solutions.
+              </div>
+              <button class="stilli-buton" onclick="gosterGizle() ">More</button>
+            </div>
+              
+            </div>
+          
+            <section id="navbar-padding"></section>
+    </section>
+
+
+    <!--Education section desing -->
+
+
+    <selection class="education" id="education">
+        <h2 id="title2" class="heading" ><span></span></h2>
+
+        <div id="text12" class="education-row">
+            <div class="education-column">
+                <h3 class="title" style="color: #3cf;">Education</h3>
+                <div class="education-box">
+                    <div class="education-content">
+                        <div class="content">
+                            <div class="year"><i class='bx bxs-calendar'></i>2008 - 2012</div>
+                            <h3>VOCATIONAL AND TECHNICAL 
+                                ANATOLIAN HIGH SCHOOL</h3>
+                                <p>WEB PROGRAMMING
+                                    <br>
+                                     
+
+                                    
+                                    
+                                </p>
+                        </div>
+                    </div>
+
+                    <div class="education-content">
+                    <div class="content">
+                        <div class="year"><i class='bx bxs-calendar'></i>2012 - 2014</div>
+                        <h3>KARADENİZ TECHNICAL UNIVERSITY</h3>
+                            <p>COMPUTER PROGRAMMING
+                                <br> 
+                              
+                            </p>
+                    </div>
+                </div>
+
+                <div class="education-content">
+                <div class="content">
+                    <div class="year"><i class='bx bxs-calendar'></i>2017 - 2020</div>
+                    <h3>ANADOLU UNIVERSITY</h3>
+                        <p>MANAGEMENT INFORMATION SYSTEMS
+                            <br> 
+                        
+                        </p>
+                </div>
+            </div>
+                </div>
+            </div>
+
+
+          <!-- the second part-->
+
+
+
+            <div id="text2" class="education-column">
+                <h3 class="title" style="color:#3cf;">Experience</h3>
+                <div class="education-box">
+                    <div class="education-content">
+                        <div class="content">
+                            <div class="year"><i class='bx bxs-calendar'></i>2013 - 2014</div>
+                            <h3>TEKNOSA  - SALES CONSULTANT</h3>
+                                <p>
+                                    <br>Server Device Installation: I handle the physical placement and connection of server devices.Software Installation: I select, install, and configure the required 
+software, such as operating systems, security software, or specialized applications.Hardware Support: I can perform hardware maintenance and replacements, 
+like changing hard drives or upgrading memory components.End-UserSupport: I assist users in accessing server services and resolving issues related to software 
+or server-related questions
+                                    
+                                </p>
+                        </div>
+                    </div>
+
+                    <div class="education-content">
+                    <div class="content">
+                        <div class="year"><i class='bx bxs-calendar'></i>2015 - 2018</div>
+                        <h3>FREELANCER.COM -IT SPECIALİST</h3>
+                            <p>
+                                <br>I worked on Freelancer.com, creating database tables using MS SQL Server, reviewing the security structure of the tables to ensure database security. 
+Additionally, I collaborated with a Database Administrator (DBA) for three years, supporting various projects. These projects were executed using remote 
+working methods on the Linux operating system
+                              
+                            </p>
+                    </div>
+                </div>
+
+                <div class="education-content">
+                <div class="content">
+                    <div class="year"><i class='bx bxs-calendar'></i>2018 - 2019</div>
+                    <h3>MIAROSA HOTEL - IT SPECIALİST</h3>
+                        <p>
+                            <br>Among the general tasks carried out at Miarosa Hotel, my responsibilities encompass all operations performed through VMware ESXi server. These operations 
+include Qnap backups, network device installations, system room arrangements, cabinet operations, and Ethernet cable organization. These tasks are crucial 
+for ensuring data security and the smooth operation of the hotel's network infrastructure, requiring a professional approach. Furthermore, I manage all these 
+processes using the VMware ESXi server.
+                        
+                        </p>
+                </div>
+            </div>
+
+            <div class="education-content">
+            <div id="text3" class="content">
+                <div class="year"><i class='bx bxs-calendar'></i>2020 - 2021</div>
+                <h3>VAKIF BANK - IT SPECIALİST</h3>
+                    <p>
+                        <br>The project-based work included recording and tracking incoming fault calls through the Vakıfbank application via telephone, distributing Office 365 to 
+departments, managing user integration with Active Directory, and handling email adjustments. These significant tasks were effectively managed. Additionally, 
+coordinated efforts with the IT team were undertaken for the removal of devices dropped by Nac and the reinstallation of images.
+                   
+                    </p>
+            </div>
+        </div>
+
+        <div class="education-content">
+        <div id="text4" class="content">
+            <div class="year"><i class='bx bxs-calendar'></i>2022 - 2023</div>
+            <h3>NAUTICAL HOTEL - SENİOR IT SPECIALİST</h3>
+                <p>
+                    <br>At Nautical Hotel, tasks included the arrangement of devices, installation of Active Directory, FortiGate, VMware, and switch AP VPN, integration of regional 
+devices to end users, organization of the system room, and regular daily follow-up of backup operations. 
+                   
+                </p>
+        </div>
+    </div>
+
+    <div class="education-content">
+    <div  id="text5" class="content">
+        <div class="year"><i class='bx bxs-calendar'></i>2023</div>
+        <h3>ODİA CLİNİCS - SENİOR IT SPECİALİST</h3>
+            <p>
+                <br>In collaboration with Odia Clinics' IT and social media team, we assumed responsibility for controlling the system network in all operational processes. These 
+responsibilities included the security of Cisco and NAS devices and the management of Berk firewall protocols. Additionally, we actively participated in 
+emergency situations such as maintenance and troubleshooting of other devices. Ensuring system continuity was our top priority, and we minimized system 
+losses by promptly addressing errors. We also implemented measures to prioritize patient privacy, including securing the system infrastructure. 
+               
+            </p>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+
+        
+    </selection>
+
+
+
+    <!--Skills Chart starts-->
+    <div class="skillss" id="skillss"></div>
+
+    <selection class="skills" id="skills">
+      
+  <div class="title-skills">WEB PROGRAMMİNG</div>
+ <div class="box" id="box2" >
+<div class="skills">
+    <div class="skill">
+        <div class="skill-name">PYTHON</div>
+        <div class="skil-bar">
+            <div class="skill-per" per="90" style="max-width: 90%;"></div>
+        </div>
+    </div>
+    <div class="skill">
+        <div class="skill-name">c#</div>
+        <div class="skil-bar">
+            <div class="skill-per" per="80" style="max-width: 80%;"></div>
+        </div>
+    </div>
+    <div class="skill">
+        <div class="skill-name">TSQL</div>
+        <div class="skil-bar">
+            <div class="skill-per" per="70" style="max-width: 70%;"></div>
+        </div>
+    </div>
+    <div class="skill">
+        <div class="skill-name">CSS</div>
+        <div class="skil-bar">
+            <div class="skill-per" per="60" style="max-width: 60%;"></div>
+        </div>
+    </div>
+    <div class="skill">
+        <div class="skill-name">HTML</div>
+        <div class="skil-bar">
+            <div class="skill-per" per="60" style="max-width: 60%;"></div>
+        </div>
+    </div>
+</div>
+      
+ </div>
+<div class="per-bar">
+    <div class="per-baarr">
+        <div class="outer">
+            <div class="inner">
+                <div id="number">
+                 LİNUX <br> <span class="span2">95%</span> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="per-baarr">
+        <div class="outer">
+            <div class="inner">
+                <div id="number">
+                    NAS <br>  <span class="span2">80%</span>
+                </div>
+            </div>
+    </div>
+    
+    <pre><div class="title-skills"  id="title2"> SYSTEM</div></pre>
+    <div class="box" id="box3" >
+        <div class="skills">
+            <div class="skill">
+                <div class="skill-name">CİSCO</div>
+                <div class="skil-bar">
+                    <div class="skill-per" per="90" style="max-width: 90%;"></div>
+                </div>
+            </div>
+            <div class="skill">
+                <div class="skill-name"> VWMARE</div>
+                <div class="skil-bar">
+                    <div class="skill-per" per="80" style="max-width: 80%;"></div>
+                </div>
+            </div>
+            <div class="skill">
+                <div class="skill-name">VEEAM</div>
+                <div class="skil-bar">
+                    <div class="skill-per" per="70" style="max-width: 70%;"></div>
+                </div>
+            </div>
+            <div class="skill">
+                <div class="skill-name">FORTİGATE</div>
+                <div class="skil-bar">
+                    <div class="skill-per" per="60" style="max-width: 60%;"></div>
+                </div>
+            </div>
+            <div class="skill">
+                <div class="skill-name">MSSQLSERVER</div>
+                <div class="skil-bar">
+                    <div class="skill-per" per="80" style="max-width: 80%;"></div>
+                </div>
+            </div>
+        </div>
+    
+</div>
+
+<div class="per-bar" id="per2">
+    <div class="per-baarr">
+        <div class="outer">
+            <div class="inner">
+                <div id="number">
+                    QNAP <br> <span class="span2">95% </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="per-baarr">
+        <div class="outer">
+            <div class="inner">
+                <div id="number">
+                    OFFICE 365<br> <span class="span2"> 80% </span>
+                </div>
+            </div>
+        </div>
+
+</selection>
+
+
+<form action="mail.php" method="post" class="form" id="form">
+   
+    <input type="text"  name="name" placeholder="Your name..">
+
+   
+    <input type="email"  name="email" placeholder="Your email..">
+   
+    <textarea  name="message" placeholder="Write something.." style="height:200px"></textarea>
+
+    <input type="submit" value="Submit">
+  </form>
+
+<div class="box" id="box-end">
+   <h1>Motivation</h1>
+   <pre>
+    <span>     
+         
+        I don't care you tired or if you going to through bad
+
+        times right now. You need to work much
+
+        harder.Nobody care about you problem.Most
+
+        success people have had a hard life. You are
+
+        nothing special. The only think that matter results
+
+        so get up and warrior. 
+                                                
+               <P>~MUHAMMED CINAR~</P>  
+    </span>
+    </pre>
+
+   
+</div>
+<script language="JavaScript">
+    document.onkeypress = function (event) {
+        event = (event || window.event);
+        if (event.keyCode == 123) {
+            return false;
+        }
+    }
+    document.onmousedown = function (event) {
+        event = (event || window.event);
+        if (event.keyCode == 123) {
+            return false;
+        }
+    }
+document.onkeydown = function (event) {
+        event = (event || window.event);
+        if (event.keyCode == 123) {
+            return false;
+        }
+    }
+</script>
+    <script>
+        
+
+function scrollToTop() {
+  const c = document.documentElement.scrollTop || document.body.scrollTop;
+  if (c > 0) {
+    window.requestAnimationFrame(scrollToTop);
+    window.scrollTo(0, c - c / 8);
+  } else {
+    // Sayfanın en üstünde değilse, butonun konumuna git
+    const button = document.getElementById("buton-id"); // Butonun ID'si
+    const buttonPosition = button.getBoundingClientRect().top; // Butonun konumu
+    window.scrollTo(0, buttonPosition);
+  }
+}
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+
+/*
+window.addEventListener('beforeunload', function (event) {
+  event.preventDefault();
+  event.returnValue = '';
+  setTimeout(function(){ alert("Are you sure you want to refresh the page?"); }, 0);
+});
+
+*/
+
+ function gosterGizle() {
+  var sakliMetin = document.getElementById("sakli_metin");
+  if (sakliMetin.style.display === "none") {
+    sakliMetin.style.display = "block";
+  } else {
+    sakliMetin.style.display = "none";
+  }
+}
+
+
+  $(document).ready(function() {
+    $('a[href^="#"]').on('click', function(event) {
+      var target = $(this.getAttribute('href'));
+      if (target.length) {
+        event.preventDefault();
+        $('html, body').stop().animate({
+          scrollTop: target.offset().top
+        }, 1000);
+      }
+    });
+  });
+
+  const header = document.querySelector('.header');
+
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 0) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
+
+
+
+
+const list = document.querySelectorAll('.list');
+
+
+function activelink() {
+    list.forEach((item) =>
+    item.classList.remove('active'));
+    this.classList.add('active');
+}
+
+list.forEach((item) =>
+item.addEventListener('click',activelink))
+
+
+
+
+const videoButton = document.getElementById('video-button');
+const videoOverlay = document.getElementById('video-overlay');
+
+videoButton.addEventListener('click', function() {
+  videoOverlay.classList.add('show');
+});
+
+videoOverlay.addEventListener('click', function() {
+  videoOverlay.classList.remove('show');
+});
+
+
+
+
+
+
+window.addEventListener('scroll', function() {
+			var headerNav = document.querySelector('.navbar');
+			var stickyNav = document.querySelector('.navigation');
+
+			if (window.pageYOffset > headerNav.offsetTop) {
+				headerNav.style.display = 'none';
+				stickyNav.style.display = 'block';
+			} else {
+				headerNav.style.display = 'flex';
+				stickyNav.style.display = 'none';
+			}
+		});
+
+
+
+
+        function toggleDarkMode() {
+  var element = document.body;
+  element.classList.toggle("dark-mode");
+}
+
+             // Select the second link (About) by default when the page loads
+             document.querySelector('.navbar a:nth-of-type(1)').classList.add('active');
+            document.querySelector('.navigation a:nth-of-type(2)').classList.add('active');
+
+
+
+
+
+            
+    </script>
+</body>
+</html>

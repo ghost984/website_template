@@ -1,0 +1,14 @@
+.navigation{
+    position: relative;
+    width: 400px;
+    height: 70px;
+    background:  linear-gradient(45deg, #f06, #3cf, #f06);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.navigation ul{
+    display: flex;
+    width: 350px;
+}
